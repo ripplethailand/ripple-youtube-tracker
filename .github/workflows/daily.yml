@@ -44,3 +44,12 @@ jobs:
           git add data/daily_stats.csv data/milestones.csv
           git commit -m "chore: update stats & milestones $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || echo "No changes"
           git push
+
+on:
+  schedule:
+    - cron: "0 17 * * *"  # 00:00 เวลาไทย
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+
